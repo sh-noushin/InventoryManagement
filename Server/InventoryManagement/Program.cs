@@ -14,8 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddSingleton<AppDbContext>(provider =>
+{
+    var options = new DbContextOptionsBuilder<AppDbContext>()
+        .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+        .Options;
+    return new AppDbContext(options);
+});
 
 builder.Services.AddRepositoryServices();
 builder.Services.AddBusinessServices();
