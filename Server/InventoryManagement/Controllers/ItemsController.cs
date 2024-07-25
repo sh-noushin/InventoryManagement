@@ -42,9 +42,9 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpPut("/Update/{id}")]
-        public async Task<ActionResult> UpdateItem(int id, string itemName)
+        public async Task<ActionResult> UpdateItem(int id, string itemName, string description)
         {
-            var item = new Item { Id = id, Name = itemName };
+            var item = new Item { Id = id, Name = itemName, Description = description };
             await _itemService.UpdateItemAsync(item);
             return NoContent();
         }
