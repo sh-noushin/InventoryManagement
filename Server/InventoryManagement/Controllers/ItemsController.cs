@@ -23,7 +23,7 @@ namespace InventoryManagement.Controllers
             return Ok(items);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("/Get/{id}")]
         public async Task<ActionResult<Item>> GetItem(int id)
         {
             var item = await _itemService.GetItemByIdAsync(id);
@@ -34,25 +34,22 @@ namespace InventoryManagement.Controllers
             return Ok(item);
         }
 
-        [HttpPost]
+        [HttpPost("/Add")]
         public async Task<ActionResult> CreateItem(Item item)
         {
             await _itemService.AddItemAsync(item);
             return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateItem(int id, Item item)
+        [HttpPut("/Update/{id}")]
+        public async Task<ActionResult> UpdateItem(int id, string itemName)
         {
-            if (id != item.Id)
-            {
-                return BadRequest();
-            }
+            var item = new Item { Id = id, Name = itemName };
             await _itemService.UpdateItemAsync(item);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("/Delete/{id}")]
         public async Task<ActionResult> DeleteItem(int id)
         {
             await _itemService.DeleteItemAsync(id);
