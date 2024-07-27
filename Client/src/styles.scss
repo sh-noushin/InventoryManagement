@@ -1,4 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.item-list, .item-form {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.item-form__header {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.item-form__group {
+  margin-bottom: 15px;
+}
+
+.item-form__label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.item-form__input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.item-form__actions {
+  text-align: right;
+}
+
+.item-form__button {
+  background-color: #1976d2;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.item-form__button:hover {
+  background-color: #155fa0;
+}
