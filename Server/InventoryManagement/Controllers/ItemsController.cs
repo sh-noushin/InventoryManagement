@@ -35,8 +35,9 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpPost("/Add")]
-        public async Task<ActionResult> CreateItem(Item item)
+        public async Task<ActionResult> CreateItem(string itemName, string description)
         {
+            var item = new Item {Name = itemName, Description = description };
             await _itemService.AddItemAsync(item);
             return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item);
         }
