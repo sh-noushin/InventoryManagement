@@ -1,13 +1,16 @@
 import { Component, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Item } from '@app/core/models/item.model';
 import { Observable} from 'rxjs';
 import { ItemFacade } from '@app/features/item/state/item-facade.service';
+import { ItemFormComponent } from "../../item/item-form/item-form.component";
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-item-list',
   standalone: true,
-  imports: [],
+  imports: [ItemFormComponent, CommonModule, FormsModule],
   templateUrl: './item-list.component.html',
   styleUrl: './item-list.component.scss'
 })

@@ -1,1 +1,28 @@
-<p>item-list works!</p>
+<div class="container">
+    <div class="item-list">
+      <div class="item-list__header">
+        <h2>Item List</h2>
+        <button (click)="onAdd()" class="item-form__button">Add Item</button>
+      </div>
+      <ul>
+        <li *ngFor="let item of items$ | async">
+          <div class="item-list__details">
+            {{ item.name }}: {{ item.description }}
+          </div>
+          <div class="item-list__actions">
+            <button (click)="onEdit(item)" class="item-list__button">Edit</button>
+            <button (click)="onDelete(item.id)" class="item-list__button item-list__button--delete">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="showForm()">
+      <app-item-form
+        [item]="selectedItem()"
+        [isEditMode]="isEditMode()"
+        (formCancel)="onFormCancel()"
+      ></app-item-form>
+    </div>
+  </div>
+  

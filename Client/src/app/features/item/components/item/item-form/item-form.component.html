@@ -1,0 +1,18 @@
+<div class="item-form">
+    <div class="item-form__header">{{ isEditMode() ? 'Edit Item' : 'Add Item' }}</div>
+    <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+      <div class="item-form__group">
+        <label for="name" class="item-form__label">Name</label>
+        <input type="text" id="name" [(ngModel)]="item().name" name="name" class="item-form__input" required>
+      </div>
+      <div class="item-form__group">
+        <label for="description" class="item-form__label">Description</label>
+        <textarea id="description" [(ngModel)]="item().description" name="description" class="item-form__input" required></textarea>
+      </div>
+      <div class="item-form__actions">
+        <button type="submit" class="item-form__button">{{ isEditMode() ? 'Update' : 'Add' }}</button>
+        <button type="button" class="item-form__button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

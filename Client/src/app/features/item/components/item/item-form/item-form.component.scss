@@ -1,0 +1,36 @@
+.item-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .item-form__header {
+    text-align: center;
+  }
+  
+  .item-form__group {
+    margin-bottom: 20px;
+  }
+  
+  .item-form__label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .item-form__input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .item-form__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .item-form__button {
+    padding: 10px 20px;
+    margin-left: 10px;
+  }
+  
